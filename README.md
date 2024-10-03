@@ -7,6 +7,14 @@ Head over to the [releases page](https://github.com/pgkt04/excalidraw-desktop/re
 2. Download the appropriate installer for your operating system:
 3. Once downloaded, run the installer and follow the on-screen instructions to install the Excalidraw desktop client.
 
+## Macos Users
+If you get the error "Is Damaged and Can’t Be Opened. You Should Move It To The Bin".  
+You can run the command:
+```bash
+xattr -c /Applications/Excalidraw.app
+```
+This is because I don't have a developer certificate and its not notarized.
+
 # Development or Building
 Before building the project, ensure you have the following prerequisites installed on your system:
 
