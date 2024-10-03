@@ -1,5 +1,6 @@
 {
   "name": "excalidraw",
+  "productName": "Excalidraw",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
