@@ -1,6 +1,8 @@
 # excalidraw-desktop
 Unofficial desktop client for Excalidraw on Windows &amp; MacOS.
 
+![windows client](./resources/windows.png)
+
 # Installation
 Head over to the [releases page](https://github.com/pgkt04/excalidraw-desktop/releases/). Follow these steps:
 1. Visit the [Releases](https://github.com/pgkt04/excalidraw-desktop/releases/) page.
