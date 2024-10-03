@@ -37,7 +37,7 @@ app.on('window-all-closed', () => {
 if (process.platform === 'darwin') {
   const template = [
     {
-      label: app.name,
+      label: "Excalidraw",
       submenu: [
         { role: 'about' },
         { type: 'separator' },
