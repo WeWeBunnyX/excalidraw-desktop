@@ -31,10 +31,7 @@
     "mac": {
       "target": "dmg",
       "category": "public.app-category.graphics-design",
-      "icon": "build/icon.icns",
-      "hardenedRuntime": false,
-      "gatekeeperAssess": false,
-      "sign": false
+      "icon": "build/icon.icns"
     },
     "win": {
       "target": [
