@@ -35,9 +35,13 @@
     "win": {
       "target": [
         "portable",
-        "nsis"
+        "msi"
       ],
       "icon": "build/icon2.ico"
+    },
+    "msi": {
+      "oneClick": false,
+      "perMachine": false
     }
   }
 }
