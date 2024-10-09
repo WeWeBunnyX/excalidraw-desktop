@@ -1,5 +1,5 @@
 # excalidraw-desktop
-Unofficial desktop client for Excalidraw on Windows &amp; MacOS.
+Unofficial desktop client for Excalidraw on Windows &amp; MacOS. It is just an electron wrapper for the website, I made this because I don't want to use it in a tab.
 
 ![windows client](./resources/windows.png)
 
