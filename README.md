@@ -37,7 +37,7 @@ Install the dependencies:
 npm install
 ```
 
-# Running the Application
+# Running
 Once the dependencies are installed, you can start the application in development mode.
 
 To run the app in development mode:
@@ -47,7 +47,7 @@ npm run start
 ```
 This command will open the Excalidraw desktop client in a development window.
 
-# Building the Application
+# Building
 To create a production build and generate executable installers for both Windows and macOS:
 
 Run the following command:
@@ -59,12 +59,5 @@ This will package the application into a distribution format (e.g., .exe for Win
 
 The generated installers will be found in the dist folder.
 
-
-# Contributing
-Contributions are welcome! To contribute:  
-1. Fork the repository.  
-2. Create a new branch for your feature or bugfix.  
-3. Submit a pull request with a detailed description of your changes.
-
-Feel free to open issues if you encounter bugs or have suggestions for improvements.  
+ 
 
