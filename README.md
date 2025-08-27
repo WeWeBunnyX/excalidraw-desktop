@@ -48,16 +48,48 @@ npm run start
 This command will open the Excalidraw desktop client in a development window.
 
 ## Building
-To create a production build and generate executable installers for both Windows and macOS:
+To create a production build and generate executable installers:
 
-Run the following command:
+### Local Building
+Run the following commands:
 
 ```bash
+# Build for all platforms (Windows, macOS, Linux)
 npm run dist
+
+# Build only for Linux (creates both deb and AppImage)
+npm run dist:linux
+
+# Build only deb package
+npm run dist:deb
+
+# Build only AppImage
+npm run dist:appimage
 ```
-This will package the application into a distribution format (e.g., .exe for Windows and .dmg for macOS), which you can then share or install.
 
 The generated installers will be found in the dist folder.
+
+### Automated Building via GitHub Actions
+This repository includes GitHub Actions workflows for automated package building:
+
+1. **Release Workflow** (`build-and-release.yml`): 
+   - Triggers automatically when you create a new tag (e.g., `v1.0.1`)
+   - Builds deb, AppImage, and universal packages (Windows .exe/.msi, macOS .dmg)
+   - Creates a GitHub release with all package files attached
+   
+2. **Manual Build Workflow** (`build-manual.yml`):
+   - Can be triggered manually from the GitHub Actions tab
+   - Allows you to build for specific platforms (Linux, Windows, macOS, or all)
+   - Uploads build artifacts that can be downloaded
+
+#### Package Types Generated:
+- **Linux**: `.deb` package and `.AppImage` portable application
+- **Windows**: Portable `.exe` and `.msi` installer
+- **macOS**: `.dmg` disk image
+
+To create a release with automated builds:
+1. Create and push a new tag: `git tag v1.0.1 && git push origin v1.0.1`
+2. The workflow will automatically build all packages and create a GitHub release
 
  
 

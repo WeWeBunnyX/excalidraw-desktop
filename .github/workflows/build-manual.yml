@@ -1,0 +1,96 @@
+name: Build Packages (Manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: 'Platform to build for'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - linux
+          - windows
+          - macos
+          - all
+
+jobs:
+  build-linux:
+    if: ${{ github.event.inputs.platform == 'linux' || github.event.inputs.platform == 'all' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Linux packages
+        run: npm run dist:linux -- --publish=never
+
+      - name: Upload Linux artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-packages
+          path: |
+            dist/excalidraw*.deb
+            dist/Excalidraw*.AppImage
+
+  build-windows:
+    if: ${{ github.event.inputs.platform == 'windows' || github.event.inputs.platform == 'all' }}
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Windows packages
+        run: npm run dist -- --publish=never
+
+      - name: Upload Windows artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-packages
+          path: |
+            dist/Excalidraw*.exe
+            dist/excalidraw*.msi
+
+  build-macos:
+    if: ${{ github.event.inputs.platform == 'macos' || github.event.inputs.platform == 'all' }}
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build macOS packages
+        run: npm run dist -- --publish=never
+
+      - name: Upload macOS artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-packages
+          path: |
+            dist/Excalidraw*.dmg
